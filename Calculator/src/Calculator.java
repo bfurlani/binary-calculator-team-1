@@ -20,9 +20,9 @@ public class Calculator implements ActionListener {
         JButton additionButton = new JButton("+");
         JButton subtractionButton = new JButton("-");
         JButton multiplyButton = new JButton("x");
-        JButton divideButton = new JButton("/");
-        JButton squareButton = new JButton("^2");
-        JButton squareRootButton = new JButton("square root");
+        JButton divideButton = new JButton("÷");
+        JButton squareButton = new JButton("x\u00B2");
+        JButton squareRootButton = new JButton("√");
         JButton equalsButton = new JButton("=");
         JButton switchButton = new JButton("Switch");
 
