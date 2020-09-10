@@ -10,4 +10,8 @@ public class Operations {
         int square = num*num;
         return square;
     }
+
+    public int doMultiply(int num1, int num2){
+        return num1 * num2;
+    }
 }

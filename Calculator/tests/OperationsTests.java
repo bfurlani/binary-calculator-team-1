@@ -25,4 +25,11 @@ public class OperationsTests {
         int square = operation.doSquare(((int) root));
         Assertions.assertEquals(square,100);
     }
+
+    @Test
+    public void multiplyTest(){
+        Operations operation = new Operations();
+        int result = operation.doMultiply(77, 89);
+        Assertions.assertEquals(result, 77 * 89);
+    }
 }
