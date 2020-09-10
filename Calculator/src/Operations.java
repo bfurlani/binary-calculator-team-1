@@ -1,9 +1,9 @@
 public class Operations {
 
 
-    public double doSquareRoot(int num){
+    public int doSquareRoot(int num){
         double root = Math.sqrt(num);
-        return root;
+        return (int) root;
     }
 
     public int doSquare(int num){
