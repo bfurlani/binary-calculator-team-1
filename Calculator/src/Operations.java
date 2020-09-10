@@ -6,8 +6,10 @@ public class Operations {
     }
 
     public String decimalToBinary(int decimalValue){
-        String binaryValue = Integer.toBinaryString(decimalValue);
-        return binaryValue;
+        if (decimalValue >= 0) {
+            return Integer.toBinaryString(decimalValue);
+        }
+        return "-" + Integer.toBinaryString(-decimalValue);
     }
 
     public int doSquareRoot(int num){

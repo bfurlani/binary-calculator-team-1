@@ -87,4 +87,18 @@ public class OperationsTests {
         int result = operation.doDivide(0, 12);
         Assertions.assertEquals(result, 0);
     }
+
+    @Test
+    public void decimalToBinaryTest(){
+        Operations operation = new Operations();
+        String result = operation.decimalToBinary(3);
+        Assertions.assertEquals(result, "11");
+    }
+
+    @Test
+    public void negativeDecimalToBinaryTest(){
+        Operations operation = new Operations();
+        String result = operation.decimalToBinary(-3);
+        Assertions.assertEquals(result, "-11");
+    }
 }
