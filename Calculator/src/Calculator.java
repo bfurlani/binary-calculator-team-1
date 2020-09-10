@@ -3,58 +3,65 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-//the "implements Actionlistener" may need to be changed, as ActionListener is one method. Not sure. Could have something to do with "this" below.
-public class Calculator {
 
-    private JLabel label;
+public class Calculator extends JFrame {
+
+    private JLabel binaryInput;
+    private JLabel output;
+    private JButton zeroButton;
+    private JButton oneButton;
+    private JButton additionButton;
+    private JButton subtractionButton;
+    private JButton multiplyButton;
+    private JButton divideButton;
+    private JButton squareButton;
+    private JButton squareRootButton;
+    private JButton equalsButton;
+    private JButton switchButton;
+    private JButton clearButton;
+
     JFrame frame;
     JPanel panel;
+    String userInput = "";
 
     public Calculator(){
         frame = new JFrame();
 
-        label = new JLabel("(blank)");
+        binaryInput = new JLabel();
+        output = new JLabel();
 
-        JButton zeroButton = new JButton("0");
-        JButton oneButton = new JButton("1");
-        JButton additionButton = new JButton("+");
-        JButton subtractionButton = new JButton("-");
-        JButton multiplyButton = new JButton("x");
-        JButton divideButton = new JButton("÷");
-        JButton squareButton = new JButton("x\u00B2");
-        JButton squareRootButton = new JButton("√");
-        JButton equalsButton = new JButton("=");
-        JButton switchButton = new JButton("Switch");
-        JButton clearButton = new JButton("Clear");
+        zeroButton = new JButton("0");
+        oneButton = new JButton("1");
+        additionButton = new JButton("+");
+        subtractionButton = new JButton("-");
+        multiplyButton = new JButton("x");
+        divideButton = new JButton("÷");
+        squareButton = new JButton("x\u00B2");
+        squareRootButton = new JButton("√");
+        equalsButton = new JButton("=");
+        switchButton = new JButton("Switch");
+        clearButton = new JButton("Clear");
 
-        zeroButton.setActionCommand("0");
-        oneButton.setActionCommand("1");
-        additionButton.setActionCommand("+");
-        subtractionButton.setActionCommand("-");
-        multiplyButton.setActionCommand("x");
-        divideButton.setActionCommand("÷");
-        squareButton.setActionCommand("x\u00B2");
-        squareRootButton.setActionCommand("√");
-        equalsButton.setActionCommand("=");
-        switchButton.setActionCommand("Switch");
-        clearButton.setActionCommand("Clear");
 
-        zeroButton.addActionListener(new ButtonClickListener());
-        oneButton.addActionListener(new ButtonClickListener());
-        additionButton.addActionListener(new ButtonClickListener());
-        subtractionButton.addActionListener(new ButtonClickListener());
-        multiplyButton.addActionListener(new ButtonClickListener());
-        divideButton.addActionListener(new ButtonClickListener());
-        squareButton.addActionListener(new ButtonClickListener());
-        squareRootButton.addActionListener(new ButtonClickListener());
-        equalsButton.addActionListener(new ButtonClickListener());
-        switchButton.addActionListener(new ButtonClickListener());
-        clearButton.addActionListener(new ButtonClickListener());
+        ButtonClickListener buttonClickListener = new ButtonClickListener();
+        zeroButton.addActionListener(buttonClickListener);
+        oneButton.addActionListener(buttonClickListener);
+        additionButton.addActionListener(buttonClickListener);
+        subtractionButton.addActionListener(buttonClickListener);
+        multiplyButton.addActionListener(buttonClickListener);
+        divideButton.addActionListener(buttonClickListener);
+        squareButton.addActionListener(buttonClickListener);
+        squareRootButton.addActionListener(buttonClickListener);
+        equalsButton.addActionListener(buttonClickListener);
+        switchButton.addActionListener(buttonClickListener);
+        clearButton.addActionListener(buttonClickListener);
 
         panel = new JPanel();
         panel.setBorder(BorderFactory.createEmptyBorder(30,30,10,30));
         panel.setLayout(new GridLayout(4,3));
-        panel.add(label);
+
+        panel.add(binaryInput);
+        panel.add(output);
         panel.add(zeroButton);
         panel.add(oneButton);
         panel.add(additionButton);
@@ -67,29 +74,38 @@ public class Calculator {
         panel.add(equalsButton);
         panel.add(clearButton);
 
-
         frame.add(panel, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Calculator");
         frame.pack();
         frame.setVisible(true);
-
     }
 
-    public void changeDisplay(String newText) {
-        label.setText(newText);
-    }
 
     public static void main(String[] args) {
-        new Calculator();
+        Calculator calculator = new Calculator();
     }
 
-    //This section down here may need to be altered, as all buttons should not go to one method
-    /*@Override
+    private class ButtonClickListener implements ActionListener {
 
-    public void actionPerformed(ActionEvent e){
-        label.setText("User input");
-    }*/
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            StringBuilder binNum = new StringBuilder();
+
+            if (e.getSource() == zeroButton) {
+                binNum.append("0");
+            }
+            if (e.getSource() == oneButton) {
+                binNum.append("1");
+            }
+
+            binaryInput.setText(""+binNum);
+
+            if (e.getSource() == equalsButton) {
+                output.setText(""+String.valueOf(binNum));
+            }
+        }
+    }
 
 
 
