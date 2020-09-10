@@ -18,7 +18,7 @@ public class ButtonClickListener implements ActionListener {
         String command = e.getActionCommand();
 
         if (command.equals("0")) {
-            if(operationClicked == false){
+            if(!operationClicked){
                 firstBinNum += "0";
                 binLabel.setText(firstBinNum);
             }else{
@@ -28,7 +28,7 @@ public class ButtonClickListener implements ActionListener {
 
         }
         else if (command.equals("1")) {
-            if(operationClicked == false){
+            if(!operationClicked){
                 firstBinNum += "1";
                 binLabel.setText(firstBinNum);
             }else{
@@ -38,7 +38,7 @@ public class ButtonClickListener implements ActionListener {
         }
 
         else if (command.equals("+")) {
-            if(operationClicked == false && !firstBinNum.equals("")) {
+            if(!operationClicked && !firstBinNum.equals("")) {
                 operationClicked = true;
                 currentEquation = firstBinNum + " + ";
                 binLabel.setText(currentEquation);
