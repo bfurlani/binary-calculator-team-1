@@ -7,6 +7,7 @@ public class ButtonClickListener implements ActionListener {
     String firstBinNum = "";
     String secondBinNum = "";
     String currentEquation = "";
+    Boolean isBinary = true;
     String currentOperation = "";
     Boolean equalClicked = false;
     int result = 0;
@@ -30,6 +31,7 @@ public class ButtonClickListener implements ActionListener {
             }
 
         }
+
         else if (command.equals("1")) {
             if(!operationClicked){
                 firstBinNum += "1";
@@ -44,6 +46,7 @@ public class ButtonClickListener implements ActionListener {
             startOperation("+");
 
         }
+
         else if (command.equals("-")) {
             startOperation("-");
 
@@ -76,9 +79,21 @@ public class ButtonClickListener implements ActionListener {
             }
             //TODO: should set operationClicked to false?
         }
-        else if (command.equals("Switch")) {
 
+        else if (command.equals("Bin/Dec")) {
+            if (!equalClicked){
+                binLabel.setText("Operation Error");
+            }
+            else if (isBinary == true) {
+                binLabel.setText(currentEquation + " = " + result);
+                isBinary = false;
+            }
+            else if (isBinary == false){
+                binLabel.setText(currentEquation + " = " + operation.decimalToBinary(result));
+                isBinary = true;
+            }
         }
+
         else if (command.equals("Clear")) {
             firstBinNum = "";
             secondBinNum = "";

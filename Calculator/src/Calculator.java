@@ -74,7 +74,7 @@ public class Calculator extends JFrame {
 
         frame.add(panel, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setTitle("Calculator");
+        frame.setTitle("Binary Calculator");
         frame.pack();
         frame.setVisible(true);
     }
