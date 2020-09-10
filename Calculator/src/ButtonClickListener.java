@@ -70,6 +70,7 @@ public class ButtonClickListener implements ActionListener {
         }
         else if (command.equals("=")) {
             int result = getOperation(currentOperation);
+            currentEquation = currentEquation + secondBinNum;
             binLabel.setText(currentEquation + " = "+ result);
         }
         else if (command.equals("Switch")) {
@@ -78,8 +79,14 @@ public class ButtonClickListener implements ActionListener {
     }
 
     private int getOperation(String op){
-        int firstDecNum = Integer.parseInt(firstBinNum,2);
-        int secondDecNum = Integer.parseInt(secondBinNum,2);
+        int firstDecNum = 0;
+        int secondDecNum = 0;
+        if(!secondBinNum.equals("")) {
+            firstDecNum = operation.binaryToDecimal(firstBinNum);
+        }
+        if(!secondBinNum.equals("")) {
+            secondDecNum = operation.binaryToDecimal(secondBinNum);
+        }
         if(op.equals("+")){
             return operation.doAddition(firstDecNum,secondDecNum);
         }else{
