@@ -1,7 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 
 public class Calculator extends JFrame {
@@ -87,26 +85,6 @@ public class Calculator extends JFrame {
         return  binaryInput;
     }
 
-//    private class ButtonClickListener implements ActionListener {
-//
-//        @Override
-//        public void actionPerformed(ActionEvent e) {
-//            StringBuilder binNum = new StringBuilder();
-//
-//            if (e.getSource() == zeroButton) {
-//                binNum.append("0");
-//            }
-//            if (e.getSource() == oneButton) {
-//                binNum.append("1");
-//            }
-//
-//            binaryInput.setText(""+binNum);
-//
-//            if (e.getSource() == equalsButton) {
-//                output.setText(""+String.valueOf(binNum));
-//            }
-//        }
-//    }
 
 
 
