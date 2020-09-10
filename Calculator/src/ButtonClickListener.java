@@ -64,7 +64,12 @@ public class ButtonClickListener implements ActionListener {
 
         }
         else if (command.equals("÷")) {
-
+            if(!operationClicked && !firstBinNum.equals("")) {
+                currentOperation = "÷";
+                operationClicked = true;
+                currentEquation = firstBinNum + " ÷ ";
+                binLabel.setText(currentEquation);
+            }
 
         }
         else if (command.equals("x\u00B2")) {
@@ -77,7 +82,9 @@ public class ButtonClickListener implements ActionListener {
         else if (command.equals("=")) {
             result = getOperation(currentOperation);
             currentEquation = currentEquation + secondBinNum;
-            binLabel.setText(currentEquation + " = "+ operation.decimalToBinary(result));
+            if(!binLabel.getText().equals("Operation Error")) {
+                binLabel.setText(currentEquation + " = " + operation.decimalToBinary(result));
+            }
         }
         else if (command.equals("Switch")) {
 
@@ -97,6 +104,13 @@ public class ButtonClickListener implements ActionListener {
             return operation.doAddition(firstDecNum,secondDecNum);
         }else if(op.equals("-")){
             return operation.doSubtraction(firstDecNum,secondDecNum);
+        }else if(op.equals("÷")) {
+            try {
+                return operation.doDivide(firstDecNum, secondDecNum);
+                }catch(IllegalArgumentException e){
+                binLabel.setText("Operation Error");
+                return 0;
+            }
         }else{
             return firstDecNum;
         }
