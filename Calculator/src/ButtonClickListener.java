@@ -14,7 +14,7 @@ public class ButtonClickListener implements ActionListener {
 
 
         }
-        else if (command.equals("1")) {I c
+        else if (command.equals("1")) {
 
 
         }
