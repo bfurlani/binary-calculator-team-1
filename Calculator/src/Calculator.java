@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 //the "implements Actionlistener" may need to be changed, as ActionListener is one method. Not sure. Could have something to do with "this" below.
-public class Calculator implements ActionListener {
+public class Calculator {
 
     private JLabel label;
     JFrame frame;
@@ -25,17 +25,31 @@ public class Calculator implements ActionListener {
         JButton squareRootButton = new JButton("√");
         JButton equalsButton = new JButton("=");
         JButton switchButton = new JButton("Switch");
+        JButton clearButton = new JButton("Clear");
 
-        zeroButton.addActionListener(this);
-        oneButton.addActionListener(this);
-        additionButton.addActionListener(this);
-        subtractionButton.addActionListener(this);
-        multiplyButton.addActionListener(this);
-        divideButton.addActionListener(this);
-        squareButton.addActionListener(this);
-        squareRootButton.addActionListener(this);
-        equalsButton.addActionListener(this);
-        switchButton.addActionListener(this);
+        zeroButton.setActionCommand("0");
+        oneButton.setActionCommand("1");
+        additionButton.setActionCommand("+");
+        subtractionButton.setActionCommand("-");
+        multiplyButton.setActionCommand("x");
+        divideButton.setActionCommand("÷");
+        squareButton.setActionCommand("x\u00B2");
+        squareRootButton.setActionCommand("√");
+        equalsButton.setActionCommand("=");
+        switchButton.setActionCommand("Switch");
+        clearButton.setActionCommand("Clear");
+
+        zeroButton.addActionListener(new ButtonClickListener());
+        oneButton.addActionListener(new ButtonClickListener());
+        additionButton.addActionListener(new ButtonClickListener());
+        subtractionButton.addActionListener(new ButtonClickListener());
+        multiplyButton.addActionListener(new ButtonClickListener());
+        divideButton.addActionListener(new ButtonClickListener());
+        squareButton.addActionListener(new ButtonClickListener());
+        squareRootButton.addActionListener(new ButtonClickListener());
+        equalsButton.addActionListener(new ButtonClickListener());
+        switchButton.addActionListener(new ButtonClickListener());
+        clearButton.addActionListener(new ButtonClickListener());
 
         panel = new JPanel();
         panel.setBorder(BorderFactory.createEmptyBorder(30,30,10,30));
@@ -51,6 +65,7 @@ public class Calculator implements ActionListener {
         panel.add(squareRootButton);
         panel.add(squareRootButton);
         panel.add(equalsButton);
+        panel.add(clearButton);
 
 
         frame.add(panel, BorderLayout.CENTER);
@@ -61,13 +76,21 @@ public class Calculator implements ActionListener {
 
     }
 
+    public void changeDisplay(String newText) {
+        label.setText(newText);
+    }
+
     public static void main(String[] args) {
         new Calculator();
     }
 
     //This section down here may need to be altered, as all buttons should not go to one method
-    @Override
+    /*@Override
+
     public void actionPerformed(ActionEvent e){
         label.setText("User input");
-    }
+    }*/
+
+
+
 }
