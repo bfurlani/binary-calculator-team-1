@@ -25,4 +25,19 @@ public class OperationsTests {
         int square = operation.doSquare(((int) root));
         Assertions.assertEquals(square,100);
     }
+
+    @Test
+    public void doAdditionTest(){
+        Operations operation = new Operations();
+        int result = operation.doAddition(40, 60);
+        Assertions.assertEquals(result, 100);
+    }
+
+    @Test
+    public void doSubtractionTest(){
+        Operations operation = new Operations();
+        int result = operation.doSubtraction(100, 60);
+        Assertions.assertEquals(result, 40);
+    }
+
 }
