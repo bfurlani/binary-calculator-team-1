@@ -43,7 +43,7 @@ public class Calculator extends JFrame {
         clearButton = new JButton("Clear");
 
 
-        ButtonClickListener buttonClickListener = new ButtonClickListener();
+        ButtonClickListener buttonClickListener = new ButtonClickListener(binaryInput);
         zeroButton.addActionListener(buttonClickListener);
         oneButton.addActionListener(buttonClickListener);
         additionButton.addActionListener(buttonClickListener);
@@ -82,30 +82,31 @@ public class Calculator extends JFrame {
     }
 
 
-    public static void main(String[] args) {
-        Calculator calculator = new Calculator();
+
+    public JLabel getBinaryInput(){
+        return  binaryInput;
     }
 
-    private class ButtonClickListener implements ActionListener {
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            StringBuilder binNum = new StringBuilder();
-
-            if (e.getSource() == zeroButton) {
-                binNum.append("0");
-            }
-            if (e.getSource() == oneButton) {
-                binNum.append("1");
-            }
-
-            binaryInput.setText(""+binNum);
-
-            if (e.getSource() == equalsButton) {
-                output.setText(""+String.valueOf(binNum));
-            }
-        }
-    }
+//    private class ButtonClickListener implements ActionListener {
+//
+//        @Override
+//        public void actionPerformed(ActionEvent e) {
+//            StringBuilder binNum = new StringBuilder();
+//
+//            if (e.getSource() == zeroButton) {
+//                binNum.append("0");
+//            }
+//            if (e.getSource() == oneButton) {
+//                binNum.append("1");
+//            }
+//
+//            binaryInput.setText(""+binNum);
+//
+//            if (e.getSource() == equalsButton) {
+//                output.setText(""+String.valueOf(binNum));
+//            }
+//        }
+//    }
 
 
 
