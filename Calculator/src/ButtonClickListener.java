@@ -8,6 +8,7 @@ public class ButtonClickListener implements ActionListener {
     String secondBinNum = "";
     String currentEquation = "";
     String currentOperation = "";
+    Boolean equalClicked = false;
     int result = 0;
     Boolean operationClicked = false;
     JLabel binLabel;
@@ -40,21 +41,12 @@ public class ButtonClickListener implements ActionListener {
         }
 
         else if (command.equals("+")) {
-            if(!operationClicked && !firstBinNum.equals("")) {
-                currentOperation = "+";
-                operationClicked = true;
-                currentEquation = firstBinNum + " + ";
-                binLabel.setText(currentEquation);
-            }
+            startOperation("+");
 
         }
         else if (command.equals("-")) {
-            if(!operationClicked && !firstBinNum.equals("")) {
-                currentOperation = "-";
-                operationClicked = true;
-                currentEquation = firstBinNum + " - ";
-                binLabel.setText(currentEquation);
-            }
+            startOperation("-");
+
 
         }
         else if (command.equals("x")) {
@@ -62,12 +54,8 @@ public class ButtonClickListener implements ActionListener {
 
         }
         else if (command.equals("÷")) {
-            if(!operationClicked && !firstBinNum.equals("")) {
-                currentOperation = "÷";
-                operationClicked = true;
-                currentEquation = firstBinNum + " ÷ ";
-                binLabel.setText(currentEquation);
-            }
+            startOperation("÷");
+
 
         }
         else if (command.equals("x\u00B2")) {
@@ -78,10 +66,13 @@ public class ButtonClickListener implements ActionListener {
 
         }
         else if (command.equals("=")) {
-            result = getOperation(currentOperation);
-            currentEquation = currentEquation + secondBinNum;
-            if(!binLabel.getText().equals("Operation Error")) {
-                binLabel.setText(currentEquation + " = " + operation.decimalToBinary(result));
+            if(!equalClicked) {
+                result = getOperation(currentOperation);
+                currentEquation = currentEquation + secondBinNum;
+                if (!binLabel.getText().equals("Operation Error")) {
+                    binLabel.setText(currentEquation + " = " + operation.decimalToBinary(result));
+                }
+                equalClicked = true;
             }
             //TODO: should set operationClicked to false?
         }
@@ -96,6 +87,16 @@ public class ButtonClickListener implements ActionListener {
             result = 0;
             binLabel.setText("");
             operationClicked = false;
+            equalClicked = false;
+        }
+    }
+
+    private void startOperation(String operationString){
+        if(!operationClicked && !firstBinNum.equals("")) {
+            currentOperation = operationString;
+            operationClicked = true;
+            currentEquation = firstBinNum + " "+operationString+" ";
+            binLabel.setText(currentEquation);
         }
     }
 

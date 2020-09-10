@@ -9,7 +9,7 @@ Wyatt- UI and Toggle Binary/Decimal<br>
 Alex- Event Handlers and Converstion<br>
 Cody - division multiplication and clear<br>
 Daniel - Addition and Subtraction<br>
-Ben - square and square root<br>
+Ben - square and square root, event handlers for Addition, Subtraction, Division, and Equals sign.<br>
 
 ## Team Meetings
 Meeting 09/08/2020 @ 3:00pm<br>
