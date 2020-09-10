@@ -2,11 +2,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.lang.reflect.Method;
 
 public class ButtonClickListener implements ActionListener {
+    Operations operation = new Operations();
     String firstBinNum = "";
     String secondBinNum = "";
     String currentEquation = "";
+    String currentOperation = "";
     Boolean operationClicked = false;
     JLabel binLabel;
     public ButtonClickListener(JLabel label){
@@ -39,6 +42,7 @@ public class ButtonClickListener implements ActionListener {
 
         else if (command.equals("+")) {
             if(!operationClicked && !firstBinNum.equals("")) {
+                currentOperation = "+";
                 operationClicked = true;
                 currentEquation = firstBinNum + " + ";
                 binLabel.setText(currentEquation);
@@ -65,13 +69,21 @@ public class ButtonClickListener implements ActionListener {
 
         }
         else if (command.equals("=")) {
-
+            int result = getOperation(currentOperation);
+            binLabel.setText(currentEquation + " = "+ result);
         }
         else if (command.equals("Switch")) {
 
         }
+    }
 
-
-
+    private int getOperation(String op){
+        int firstDecNum = Integer.parseInt(firstBinNum,2);
+        int secondDecNum = Integer.parseInt(secondBinNum,2);
+        if(op.equals("+")){
+            return operation.doAddition(firstDecNum,secondDecNum);
+        }else{
+            return 0;
+        }
     }
 }
