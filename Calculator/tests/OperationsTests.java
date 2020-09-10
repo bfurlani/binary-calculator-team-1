@@ -47,4 +47,45 @@ public class OperationsTests {
         int result = operation.doMultiply(77, 89);
         Assertions.assertEquals(result, 77 * 89);
     }
+
+    @Test
+    public void DivideJustAboveOneTest(){
+        Operations operation = new Operations();
+        int result = operation.doDivide(90, 89);
+        Assertions.assertEquals(result, 1);
+    }
+
+    @Test
+    public void DivideOneTest(){
+        Operations operation = new Operations();
+        int result = operation.doDivide(90, 90);
+        Assertions.assertEquals(result, 1);
+    }
+
+    @Test
+    public void DivideJustBelowOneTest(){
+        Operations operation = new Operations();
+        int result = operation.doDivide(89, 90);
+        Assertions.assertEquals(result, 0);
+    }
+
+    @Test
+    public void DivideByZeroTest(){
+        Operations operation = new Operations();
+        Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            operation.doDivide(1, 0);
+        });
+
+        String expectedMessage = "Divide by 0 Error";
+        String actualMessage = exception.getMessage();
+
+        Assertions.assertTrue(actualMessage.contains(expectedMessage));
+    }
+
+    @Test
+    public void DivideZeroBySomethingTest(){
+        Operations operation = new Operations();
+        int result = operation.doDivide(0, 12);
+        Assertions.assertEquals(result, 0);
+    }
 }
