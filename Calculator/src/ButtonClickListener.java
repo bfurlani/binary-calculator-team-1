@@ -10,6 +10,7 @@ public class ButtonClickListener implements ActionListener {
     String secondBinNum = "";
     String currentEquation = "";
     String currentOperation = "";
+    int result = 0;
     Boolean operationClicked = false;
     JLabel binLabel;
     public ButtonClickListener(JLabel label){
@@ -50,7 +51,12 @@ public class ButtonClickListener implements ActionListener {
 
         }
         else if (command.equals("-")) {
-
+            if(!operationClicked && !firstBinNum.equals("")) {
+                currentOperation = "-";
+                operationClicked = true;
+                currentEquation = firstBinNum + " - ";
+                binLabel.setText(currentEquation);
+            }
 
         }
         else if (command.equals("x")) {
@@ -69,9 +75,9 @@ public class ButtonClickListener implements ActionListener {
 
         }
         else if (command.equals("=")) {
-            int result = getOperation(currentOperation);
+            result = getOperation(currentOperation);
             currentEquation = currentEquation + secondBinNum;
-            binLabel.setText(currentEquation + " = "+ result);
+            binLabel.setText(currentEquation + " = "+ operation.decimalToBinary(result));
         }
         else if (command.equals("Switch")) {
 
@@ -81,7 +87,7 @@ public class ButtonClickListener implements ActionListener {
     private int getOperation(String op){
         int firstDecNum = 0;
         int secondDecNum = 0;
-        if(!secondBinNum.equals("")) {
+        if(!firstBinNum.equals("")) {
             firstDecNum = operation.binaryToDecimal(firstBinNum);
         }
         if(!secondBinNum.equals("")) {
@@ -89,8 +95,10 @@ public class ButtonClickListener implements ActionListener {
         }
         if(op.equals("+")){
             return operation.doAddition(firstDecNum,secondDecNum);
+        }else if(op.equals("-")){
+            return operation.doSubtraction(firstDecNum,secondDecNum);
         }else{
-            return 0;
+            return firstDecNum;
         }
     }
 }
