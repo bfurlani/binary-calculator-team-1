@@ -22,7 +22,6 @@ public class Calculator extends JFrame {
 
     JFrame frame;
     JPanel panel;
-    String userInput = "";
 
     public Calculator(){
         frame = new JFrame();
@@ -39,7 +38,7 @@ public class Calculator extends JFrame {
         squareButton = new JButton("x\u00B2");
         squareRootButton = new JButton("√");
         equalsButton = new JButton("=");
-        switchButton = new JButton("Switch");
+        switchButton = new JButton("Bin/Dec");
         clearButton = new JButton("Clear");
 
 
@@ -71,6 +70,7 @@ public class Calculator extends JFrame {
         panel.add(squareButton);
         panel.add(squareRootButton);
         panel.add(squareRootButton);
+        panel.add(switchButton);
         panel.add(equalsButton);
         panel.add(clearButton);
 
