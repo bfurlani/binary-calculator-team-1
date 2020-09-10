@@ -40,7 +40,6 @@ public class OperationsTests {
         Assertions.assertEquals(result, 40);
     }
 
-
     @Test
     public void multiplyTest(){
         Operations operation = new Operations();

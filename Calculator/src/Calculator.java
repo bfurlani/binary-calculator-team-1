@@ -22,6 +22,7 @@ public class Calculator extends JFrame {
 
     JFrame frame;
     JPanel panel;
+    String userInput = "";
 
     public Calculator(){
         frame = new JFrame();
@@ -73,13 +74,11 @@ public class Calculator extends JFrame {
         panel.add(equalsButton);
         panel.add(clearButton);
 
-
         frame.add(panel, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Calculator");
         frame.pack();
         frame.setVisible(true);
-
     }
 
 

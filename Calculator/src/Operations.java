@@ -1,5 +1,14 @@
 public class Operations {
 
+    public int binaryToDecimal(String binaryValue){
+        int decimalValue = Integer.parseInt(binaryValue,2);
+        return decimalValue;
+    }
+
+    public String decimalToBinary(int decimalValue){
+        String binaryValue = Integer.toBinaryString(decimalValue);
+        return binaryValue;
+    }
 
     public int doSquareRoot(int num){
         double root = Math.sqrt(num);
@@ -20,7 +29,6 @@ public class Operations {
         int difference = num-num2;
         return difference;
     }
-
 
     public int doMultiply(int num1, int num2){
         return num1 * num2;
