@@ -130,7 +130,7 @@ public class ButtonClickListener implements ActionListener {
             return operation.doAddition(firstDecNum,secondDecNum);
         }else if(op.equals("-")){
             return operation.doSubtraction(firstDecNum,secondDecNum);
-        }else if(op.equals("-")) {
+        }else if(op.equals("x")) {
             return operation.doMultiply(firstDecNum, secondDecNum);
         }else if(op.equals("÷")) {
             try {
