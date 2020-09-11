@@ -2,7 +2,7 @@
 A Java Binary Calculator
 
 ## Tasks
-Wyatt- UI and Toggle Binary/Decimal<br>
+Wyatt- UI, Binary/Decimal Conversion Methods, Toggle Button<br>
 Alex- Event Handlers and Conversion<br>
 Cody - Division, Multiplication, Clear, and Negative Binary Display<br>
 Daniel - Addition, Subtraction, and Readme<br>
