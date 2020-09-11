@@ -6,8 +6,8 @@ Main Method located in Calculator.java
 
 ## Tasks
 Wyatt- UI and Toggle Binary/Decimal<br>
-Alex- Event Handlers and Converstion<br>
-Cody - division multiplication and clear<br>
+Alex- Event Handlers and Conversion<br>
+Cody - Division, Multiplication, Clear, Negative Binary Display<br>
 Daniel - Addition and Subtraction<br>
 Ben - square and square root, event handlers for Addition, Subtraction, Division, and Equals sign.<br>
 
