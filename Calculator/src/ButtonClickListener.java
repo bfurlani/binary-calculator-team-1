@@ -29,7 +29,13 @@ public class ButtonClickListener implements ActionListener {
                 secondBinNum += "0";
                 binLabel.setText(currentEquation + secondBinNum);
             }
-
+            if (equalClicked){
+                firstBinNum = "";
+                secondBinNum = "";
+                binLabel.setText("Current operation cleared. Try another calculation.");
+                operationClicked = false;
+                equalClicked = false;
+            }
         }
 
         else if (command.equals("1")) {
@@ -39,6 +45,13 @@ public class ButtonClickListener implements ActionListener {
             }else{
                 secondBinNum += "1";
                 binLabel.setText(currentEquation + secondBinNum);
+            }
+            if (equalClicked){
+                firstBinNum = "";
+                secondBinNum = "";
+                binLabel.setText("Current operation cleared. Try another calculation.");
+                operationClicked = false;
+                equalClicked = false;
             }
         }
 
