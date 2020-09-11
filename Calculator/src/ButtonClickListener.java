@@ -94,26 +94,25 @@ public class ButtonClickListener implements ActionListener {
                 }
                 equalClicked = true;
             }
-            //TODO: should set operationClicked to false?
         }
 
         else if (command.equals("Bin/Dec")) {
             if (!equalClicked){
                 binLabel.setText("Operation Error");
             }
-            else if (isBinary == true && !(currentOperation == "x\u00B2") && !(currentOperation == "√")) {
+            else if (isBinary && !(currentOperation == "x\u00B2") && !(currentOperation == "√")) {
                 binLabel.setText(currentEquation + " = " + result);
                 isBinary = false;
             }
-            else if (isBinary == false && !(currentOperation == "x\u00B2") && !(currentOperation == "√")){
+            else if (!isBinary && !(currentOperation == "x\u00B2") && !(currentOperation == "√")){
                 binLabel.setText(currentEquation + " = " + operation.decimalToBinary(result));
                 isBinary = true;
             }
-            else if (isBinary == true) {
+            else if (isBinary) {
                 binLabel.setText("=" + result);
                 isBinary = false;
             }
-            else if (isBinary == false) {
+            else if (!isBinary) {
                 binLabel.setText("=" + operation.decimalToBinary(result));
                 isBinary = true;
             }
