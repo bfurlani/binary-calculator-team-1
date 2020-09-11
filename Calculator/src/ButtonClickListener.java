@@ -64,10 +64,25 @@ public class ButtonClickListener implements ActionListener {
 
         }
         else if (command.equals("x\u00B2")) {
-
+            if(!operationClicked && !firstBinNum.equals("")) {
+                currentOperation = "x\u00B2";
+                operationClicked = true;
+                currentEquation = firstBinNum;
+                result = getOperation(currentOperation);
+                equalClicked = true;
+                binLabel.setText("=" + operation.decimalToBinary(result));
+            }
 
         }
         else if (command.equals("√")) {
+            if(!operationClicked && !firstBinNum.equals("")) {
+                currentOperation = "√";
+                operationClicked = true;
+                currentEquation = firstBinNum;
+                result = getOperation(currentOperation);
+                equalClicked = true;
+                binLabel.setText("=" + operation.decimalToBinary(result));
+            }
 
         }
         else if (command.equals("=")) {
@@ -86,14 +101,23 @@ public class ButtonClickListener implements ActionListener {
             if (!equalClicked){
                 binLabel.setText("Operation Error");
             }
-            else if (isBinary == true) {
+            else if (isBinary == true && !(currentOperation == "x\u00B2") && !(currentOperation == "√")) {
                 binLabel.setText(currentEquation + " = " + result);
                 isBinary = false;
             }
-            else if (isBinary == false){
+            else if (isBinary == false && !(currentOperation == "x\u00B2") && !(currentOperation == "√")){
                 binLabel.setText(currentEquation + " = " + operation.decimalToBinary(result));
                 isBinary = true;
             }
+            else if (isBinary == true) {
+                binLabel.setText("=" + result);
+                isBinary = false;
+            }
+            else if (isBinary == false) {
+                binLabel.setText("=" + operation.decimalToBinary(result));
+                isBinary = true;
+            }
+
         }
 
         else if (command.equals("Clear")) {
@@ -132,6 +156,10 @@ public class ButtonClickListener implements ActionListener {
             return operation.doSubtraction(firstDecNum,secondDecNum);
         }else if(op.equals("x")) {
             return operation.doMultiply(firstDecNum, secondDecNum);
+        }else if(op.equals("√")) {
+            return operation.doSquareRoot(firstDecNum);
+        }else if(op.equals("x\u00B2")) {
+            return operation.doSquare(firstDecNum);
         }else if(op.equals("÷")) {
             try {
                 return operation.doDivide(firstDecNum, secondDecNum);
