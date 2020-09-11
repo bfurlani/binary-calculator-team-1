@@ -53,6 +53,8 @@ public class ButtonClickListener implements ActionListener {
 
         }
         else if (command.equals("x")) {
+            startOperation("x");
+
 
 
         }
@@ -128,6 +130,8 @@ public class ButtonClickListener implements ActionListener {
             return operation.doAddition(firstDecNum,secondDecNum);
         }else if(op.equals("-")){
             return operation.doSubtraction(firstDecNum,secondDecNum);
+        }else if(op.equals("-")) {
+            return operation.doMultiply(firstDecNum, secondDecNum);
         }else if(op.equals("÷")) {
             try {
                 return operation.doDivide(firstDecNum, secondDecNum);
